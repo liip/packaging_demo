@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        if [ "$2" = "" ] || [ "$2" = "0" ]; then
+            FIRSTTIMEINSTALL=1
+        fi
+
+        if [ "$FIRSTTIMEINSTALL" = "1" ]; then
+            echo -n "Enter the database user: "
+            read db_user
+            echo -n "Enter the database host (leave blank for localhost): "
+            read db_host
+            echo -n "Enter the database password (won't be echoed): "
+            tty_orig=`stty -g`
+            stty -echo
+            read db_password
+            stty $tty_orig
+
+            # Template user input and generate config.php file
+            m4 -D_DB_USER_="$db_user" -D_DB_HOST_="$db_host" -D_DB_PASSWORD_="$db_password" /var/www/@PACKAGENAME@/config.php.dist > /var/www/@PACKAGENAME@/config.php
+            rm -f /var/www/@PACKAGENAME@/config.php.dist
+
+            # Generate apache2 vhost based on the config.env.m4 template file
+            m4 /etc/packaged-site/@PACKAGENAME@/config.@ENV@.m4 /etc/packaged-site/@PACKAGENAME@/apache2.conf > /etc/apache2/sites-available/002-@PACKAGENAME@
+            a2ensite 002-@PACKAGENAME@
+            apache2ctl graceful
+        fi
+
+        echo "Installation of @PACKAGENAME@ finished !"
+    ;;
+esac

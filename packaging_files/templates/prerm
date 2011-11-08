@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    remove|deconfigure)
+        a2dissite 002-@PACKAGENAME@
+        rm -f /etc/apache2/sites-available/002-@PACKAGENAME@
+        rm -f /var/www/@PACKAGENAME@/config.php
+
+        apache2ctl graceful
+    ;;
+esac

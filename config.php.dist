@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * This file contains various configuration values for the project. This is a
+ * skeleton file that will be part of the package and then templated according
+ * to user input (see the postinst script for that).
+ *
+ * So in the project you'll have a config.php file that won't be version
+ * controlled, and this skeleton that will be.
+ */
+
+$db_user = '_DB_USER_';
+$db_password = '_DB_PASSWORD_';
+$db_host = '_DB_HOST_';

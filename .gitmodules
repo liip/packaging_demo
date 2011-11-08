@@ -1,0 +1,3 @@
+[submodule "packaging"]
+	path = packaging
+	url = gitosis@git.liip.ch:public/packaging
