@@ -12,3 +12,4 @@
 $db_user = '_DB_USER_';
 $db_password = '_DB_PASSWORD_';
 $db_host = '_DB_HOST_';
+$db_name = '_DB_NAME_';

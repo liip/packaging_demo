@@ -1,6 +1,6 @@
 $configure = array(
     'packagename' => 'packaging-demo',
-    'version' => '1.2',
+    'version' => '1.3',
     'maintainer' => 'Sylvain Fankhauser <sylvain.fankhauser@liip.ch>',
     'description' => 'Installs the packaging-demo website',
     'url' => '',

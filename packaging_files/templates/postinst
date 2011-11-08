@@ -9,18 +9,21 @@ case "$1" in
         fi
 
         if [ "$FIRSTTIMEINSTALL" = "1" ]; then
+            echo -n "Enter the database host: "
+            read db_host
             echo -n "Enter the database user: "
             read db_user
-            echo -n "Enter the database host (leave blank for localhost): "
-            read db_host
-            echo -n "Enter the database password (won't be echoed): "
+            echo -n "Enter the password for the given database user (won't be echoed): "
             tty_orig=`stty -g`
             stty -echo
             read db_password
             stty $tty_orig
+            echo ""
+            echo -n "Enter the database name: "
+            read db_name
 
             # Template user input and generate config.php file
-            m4 -D_DB_USER_="$db_user" -D_DB_HOST_="$db_host" -D_DB_PASSWORD_="$db_password" /var/www/@PACKAGENAME@/config.php.dist > /var/www/@PACKAGENAME@/config.php
+            m4 -D_DB_USER_="$db_user" -D_DB_HOST_="$db_host" -D_DB_PASSWORD_="$db_password" -D_DB_NAME_="$db_name" /var/www/@PACKAGENAME@/config.php.dist > /var/www/@PACKAGENAME@/config.php
             rm -f /var/www/@PACKAGENAME@/config.php.dist
 
             # Generate apache2 vhost based on the config.env.m4 template file

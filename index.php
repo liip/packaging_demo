@@ -6,8 +6,17 @@
 </head>
 <body>
     <?php require_once 'config.php' ?>
+    <h1>It works!</h1>
     <p><img src="/images/logo-liip.gif"/></p>
-    <p>Hello the current date is <?php echo date('Y/m/d') ?>.</p>
-    <p>Your config is <?php echo $db_user ?></p>
+    <p>Hello, the current date is <?php echo date('Y/m/d') ?>.</p>
+    <p>Your db config is:</p>
+    <dl>
+        <dt>Host</dt>
+        <dd><?php echo $db_host ?></dd>
+        <dt>Username</dt>
+        <dd><?php echo $db_user ?></dd>
+        <dt>Database name</dt>
+        <dd><?php echo $db_name ?></dd>
+    </dl>
 </body>
 </html>
