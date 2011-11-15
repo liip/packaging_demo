@@ -40,6 +40,8 @@ $filemapping = array(
         '*',
         '- /doc',
         '- /packaging_files',
+        '- /packaging_config.deb.php',
+        '- /packaging_config.rpm.php',
     ),
     // These templated files are copied to a temporary directory because they'll
     // need some post-processing done by postinst
