@@ -14,10 +14,10 @@ $configure = array(
 
     'tmpdir' => '/tmp',
     'templatedir' => 'packaging_files/templates',
-    'postinst' => 'packaging_files/templates/postinst',
+    'postinst' => 'packaging_files/templates/postinst_deb',
     'preinst' => '',
     'postrm' => '',
-    'prerm' => 'packaging_files/templates/prerm',
+    'prerm' => 'packaging_files/templates/prerm_deb',
 );
 
 /* here you can define which files or directories should go where in the target system.
