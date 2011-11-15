@@ -1,1 +1,9 @@
 This is the sample project for the generic packaging solution.
+
+To create a package do the following:
+1. Go to the project root
+2. to build a rpm package: copy the file packaging_config.rpm.php to packaging_config.php
+   to build a debian package: copy the file packaging_config.deb.php to packaging_config.php
+3. run 'packaging/configure'
+4. run 'make' with the parameter ENV set to either 'prod' or 'staging'
+  example: make ENV=prod
