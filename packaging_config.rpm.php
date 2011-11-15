@@ -6,8 +6,8 @@ $configure = array(
     'url' => '',
     'packagetype' => 'rpm',
     'depends' => array(
-        'apache2',
-        'apache2-mod_php5',
+        'httpd',
+        'php53',
         // M4 is used to template some files, see postinst
         'm4',
     ),
