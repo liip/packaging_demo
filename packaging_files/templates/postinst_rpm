@@ -9,7 +9,7 @@ fi
 if [ "$FIRSTTIMEINSTALL" = "1" ]; then
     # Generate apache2 vhost based on the config.env.m4 template file
     m4 /etc/packaged-site/@PACKAGENAME@/config.@ENV@.m4 /etc/packaged-site/@PACKAGENAME@/apache2.conf > /etc/httpd/conf.d/002-@PACKAGENAME@.conf
-    apache2ctl graceful
+    /sbin/service httpd reload
 fi
 
 echo "Installation of @PACKAGENAME@ finished !"

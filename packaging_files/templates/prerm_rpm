@@ -6,5 +6,5 @@ if [ "$1" = 0 ]; then
     rm -f /etc/httpd/conf.d/002-@PACKAGENAME@.conf
     rm -f /var/www/@PACKAGENAME@/config.php
 
-    apache2ctl graceful
+    /sbin/service httpd reload
 fi
