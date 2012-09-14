@@ -1,9 +1,10 @@
 $configure = array(
     'packagename' => 'packaging-demo',
+    'arch' => 'all',
     'version' => '1.3',
     'maintainer' => 'Sylvain Fankhauser <sylvain.fankhauser@liip.ch>',
     'description' => 'Installs the packaging-demo website',
-    'url' => '',
+    'url' => 'https://github.com/liip/packaging_demo',
     'packagetype' => 'rpm',
     'depends' => array(
         'httpd',
